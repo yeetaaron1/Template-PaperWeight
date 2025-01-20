@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-  implementation(project(":paper_hooks"))
+  implementation(project(":Paper_hooks"))
 
   paperweight.paperDevBundle("1.17.1-R0.1-SNAPSHOT")
 }

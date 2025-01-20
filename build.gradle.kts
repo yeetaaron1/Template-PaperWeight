@@ -14,16 +14,16 @@ java.disableAutoTargetJvm() // Allow consuming JVM 21 projects (i.e. paper_1_21_
 dependencies {
   compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
 
-  implementation(project(":paper_hooks"))
+  implementation(project(":Paper_hooks"))
 
   // Shade the reobf variant
-  runtimeOnly(project(":paper_1_17_1", configuration = "reobf"))
-  runtimeOnly(project(":paper_1_19_4", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_17_R1", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_19_R4", configuration = "reobf"))
 
   // For Paper 1.20.5+, we don't need to use the reobf variant.
   // If you still support spigot, you will need to use the reobf variant,
   // and remove the Mojang-mapped metadata from the manifest below.
-  runtimeOnly(project(":paper_1_21_4"))
+  runtimeOnly(project(":Haven_1_21_R4"))
 }
 
 tasks.assemble {
