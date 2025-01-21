@@ -12,17 +12,38 @@ plugins {
 java.disableAutoTargetJvm() // Allow consuming JVM 21 projects (i.e. paper_1_21_4) even though our release is 17
 
 dependencies {
-  compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+  compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 
   implementation(project(":Paper_hooks"))
 
   // Shade the reobf variant
   runtimeOnly(project(":Haven_1_17_R1", configuration = "reobf"))
+
+  runtimeOnly(project(":Haven_1_18_R0", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_18_R1", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_18_R2", configuration = "reobf"))
+
+  runtimeOnly(project(":Haven_1_19_R0", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_19_R1", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_19_R3", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_19_R2", configuration = "reobf"))
   runtimeOnly(project(":Haven_1_19_R4", configuration = "reobf"))
+
+
+  runtimeOnly(project(":Haven_1_20_R0", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_20_R1", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_20_R2", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_20_R3", configuration = "reobf"))
+  runtimeOnly(project(":Haven_1_20_R4", configuration = "reobf"))
+//  runtimeOnly(project(":Haven_1_20_R5"))
+//  runtimeOnly(project(":Haven_1_20_R6"))
 
   // For Paper 1.20.5+, we don't need to use the reobf variant.
   // If you still support spigot, you will need to use the reobf variant,
   // and remove the Mojang-mapped metadata from the manifest below.
+  runtimeOnly(project(":Haven_1_21_R0"))
+  runtimeOnly(project(":Haven_1_21_R1"))
+  runtimeOnly(project(":Haven_1_21_R3"))
   runtimeOnly(project(":Haven_1_21_R4"))
 }
 
@@ -53,6 +74,43 @@ tasks.register("run1_17_1", RunServer::class) {
   minecraftVersion("1.17.1")
   pluginJars.from(tasks.shadowJar.flatMap { it.archiveFile })
   runDirectory = layout.projectDirectory.dir("run1_17_1")
+  systemProperties["Paper.IgnoreJavaVersion"] = true
+}
+
+
+tasks.register("run1_18_1", RunServer::class) {
+  minecraftVersion("1.18.1")
+  pluginJars.from(tasks.shadowJar.flatMap { it.archiveFile })
+  runDirectory = layout.projectDirectory.dir("run1_18_1")
+  systemProperties["Paper.IgnoreJavaVersion"] = true
+}
+
+tasks.register("run1_18_2", RunServer::class) {
+  minecraftVersion("1.18.2")
+  pluginJars.from(tasks.shadowJar.flatMap { it.archiveFile })
+  runDirectory = layout.projectDirectory.dir("run1_18_2")
+  systemProperties["Paper.IgnoreJavaVersion"] = true
+}
+
+
+tasks.register("run1_19_1", RunServer::class) {
+  minecraftVersion("1.19.1")
+  pluginJars.from(tasks.shadowJar.flatMap { it.archiveFile })
+  runDirectory = layout.projectDirectory.dir("run1_19_1")
+  systemProperties["Paper.IgnoreJavaVersion"] = true
+}
+
+tasks.register("run1_19_2", RunServer::class) {
+  minecraftVersion("1.19.2")
+  pluginJars.from(tasks.shadowJar.flatMap { it.archiveFile })
+  runDirectory = layout.projectDirectory.dir("run1_19_2")
+  systemProperties["Paper.IgnoreJavaVersion"] = true
+}
+
+tasks.register("run1_19_3", RunServer::class) {
+  minecraftVersion("1.19.3")
+  pluginJars.from(tasks.shadowJar.flatMap { it.archiveFile })
+  runDirectory = layout.projectDirectory.dir("run1_19_3")
   systemProperties["Paper.IgnoreJavaVersion"] = true
 }
 

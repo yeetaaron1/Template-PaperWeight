@@ -1,15 +1,57 @@
-# paperweight-test-plugin
-
-jmp's test plugin for [`paperweight-userdev`](https://github.com/PaperMC/paperweight/tree/main/paperweight-userdev) development
-
-(also serves as an example until more thorough documentation is created)
-
-### notes (read these)
-
-- `build.gradle.kts` and `settings.gradle.kts` both contain important configuration.
-- `paperweight-userdev` automatically detects shadow and will use `shadowJar` as input for `reobfJar`. This means no extra configuration is required to use `paperweight-userdev` with shadow. See the `shadow` branch on this repository for an example usage of shadow with `paperweight-userdev`.
-- The `run-paper` Gradle plugin is optional, it integrates with paperweight and allows for launching a test server with your plugin through the `runServer` and `runMojangMappedServer` tasks.
-- Due to a [gradle bug](https://github.com/gradle/gradle/issues/17559), independently applying `paperweight-userdev` to multiple projects in a build can result in errors. To work around this, apply `paperweight-userdev` to the root project with `apply false` (i.e., `id("...") version "..." apply false` in Kotlin DSL), and then when applying `paperweight-userdev` to subprojects don't include a version specification. A more advanced solution would involve adding `paperweight-userdev` as a dependency to your build logic, see [`reflection-remapper`](https://github.com/jpenilla/reflection-remapper) and the [`source-remap`](https://github.com/PaperMC/paperweight-test-plugin/tree/source-remap) branch on this repo for examples of this.
-- The [`source-remap`](https://github.com/PaperMC/paperweight-test-plugin/tree/source-remap) branch on this repo has a special `remapPluginSources` task to remap the source code in `src/main/java` from spigot to Mojang mappings, outputting remapped source in `/src/main/mojangMappedJava`. Note that this will only remap your code, not update it from a prior version. Meaning you must be using the dev bundle for the Minecraft version your source code is for when remapping.
-- `paperweight-userdev` doesn't provide any utilities for doing reflection. [`reflection-remapper`](https://github.com/jpenilla/reflection-remapper) is a companion library to `paperweight-userdev` assisting with reflection on remapped code.
 # Template-PaperWeight
+
+This repository is a customized template fork based on the PaperMC Paperweight system and their example plugin for multi-version support. It has been enhanced to simplify plugin development for all PaperMC-supported Minecraft versions, including:
+
+- 1.17.1
+- 1.18(1.18.1, 1.18.2)
+- 1.19(1.19.1, 1.19.2, 1.19.3, 1.19.4)
+- 1.20(1.20.1, 1.20.2, 1.20.3, 1.20.4)
+- 1.21(1.21.1, 1.21.2, 1.21.3, 1.21.4)
+
+## Features
+
+- **Multi-Version Support**: The template is pre-configured to work seamlessly with all the major PaperMC family versions listed above.
+- **Built on Paperweight**: Leverages the powerful Paperweight build system, enabling easy dependency management and streamlined workflows.
+- **Example Plugin Code**: Includes a basic plugin example to demonstrate compatibility across versions and jumpstart your development.
+
+## Why Use This Template?
+
+This template is ideal for developers looking to:
+
+- Create Minecraft plugins that are compatible with multiple versions of the game.
+- Use modern build tools and frameworks like Gradle and Paperweight.
+- Get started quickly with a clean, pre-configured project structure.
+
+## Getting Started
+
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/yeetaaron1/Template-PaperWeight.git
+   ```
+
+2. **Configure your plugin**:
+  - Update the `settings.gradle.kts` and `build.gradle.kts` files with your plugin's name and metadata.
+  - Modify the `plugin.yml` file in the `resources` folder as needed.
+
+3. **Build your plugin**:
+   ```bash
+   ./gradlew build
+   ```
+
+4. **Test with your target Minecraft version**:
+  - Copy the generated JAR file from the `build/libs` directory to your server's `plugins` folder.
+  - Start your server to see the plugin in action.
+
+## Resources Used
+
+- **Paperweight Documentation**: [https://github.com/PaperMC/paperweight/tree/main](https://github.com/PaperMC/paperweight/tree/main)
+- **Example Plugin**: [https://github.com/PaperMC/paperweight-test-plugin](https://github.com/PaperMC/paperweight-test-plugin)
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests to improve this template.
+
+---
+
+Thank you for using Template-PaperWeight. Happy coding and enjoy building amazing plugins for Minecraft!
+
