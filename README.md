@@ -12,15 +12,6 @@ This repository is a customized template fork based on the PaperMC Paperweight s
 
 - **Multi-Version Support**: The template is pre-configured to work seamlessly with all the major PaperMC family versions listed above.
 - **Built on Paperweight**: Leverages the powerful Paperweight build system, enabling easy dependency management and streamlined workflows.
-- **Example Plugin Code**: Includes a basic plugin example to demonstrate compatibility across versions and jumpstart your development.
-
-## Why Use This Template?
-
-This template is ideal for developers looking to:
-
-- Create Minecraft plugins that are compatible with multiple versions of the game.
-- Use modern build tools and frameworks like Gradle and Paperweight.
-- Get started quickly with a clean, pre-configured project structure.
 
 ## Getting Started
 
@@ -47,11 +38,4 @@ This template is ideal for developers looking to:
 - **Paperweight Documentation**: [https://github.com/PaperMC/paperweight/tree/main](https://github.com/PaperMC/paperweight/tree/main)
 - **Example Plugin**: [https://github.com/PaperMC/paperweight-test-plugin](https://github.com/PaperMC/paperweight-test-plugin)
 
-## Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests to improve this template.
-
 ---
-
-Thank you for using Template-PaperWeight. Happy coding and enjoy building amazing plugins for Minecraft!
-
